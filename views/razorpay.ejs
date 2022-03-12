@@ -1,0 +1,38 @@
+<div class="container">
+    <button class="btn" id="rzp-button1">Proceed To Checkout</button>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+    axios.post('/order').then((info) => {
+        console.log(info);
+        var options = {
+            "key": "rzp_test_nvhBWn23LWrMPJ", // Enter the Key ID generated from the Dashboard
+            "amount": "20000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+            "currency": "INR",
+            "name": "Hostel Name",
+            "description": "Test Transaction",
+            "image": "https://example.com/your_logo",
+            "order_id": info.data.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+            "callback_url": "https://eneqd3r9zrjok.x.pipedream.net/",
+            "prefill": {
+                "name": "Gaurav Kumar",
+                "email": "gaurav.kumar@example.com",
+                "contact": "9876456745"
+            },
+            "notes": {
+                "address": "Razorpay Corporate Office"
+            },
+            "theme": {
+                "color": "#3399cc"
+            }
+        };
+
+        var rzp1 = new Razorpay(options);
+        document.getElementById('rzp-button1').onclick = function (e) {
+            rzp1.open();
+            e.preventDefault();
+        }
+
+    })
+</script>

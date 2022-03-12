@@ -1,6 +1,8 @@
 
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
-<nav class="navbar navbar-expand-lg navbar-dark sticky">
+<nav class="navbar navbar-expand-lg navbar-dark sticky" style="position: fixed;width: 100%;">
     <div class="container-fluid">
       <a class="navbar-brand ms-3" href="#" style="font-size: 2rem;">Hostel</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,26 +14,60 @@
             <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
+            <a class="nav-link" href="/pay" id="rzp-button1">Payment</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Admin Login</a>
+            <a class="nav-link" href="/complaint">Raise Complaint</a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" href="/auth/logout">Logout</a>
-          </li>
-          <!-- <li class="nav-item dropdown">
+          </li> -->
+          <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown link
+              Hello <%= name %>
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li><a class="nav-link" href="/auth/logout" style="color: #000;">Logout</a></li>
+              <!-- <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li> -->
             </ul>
-          </li> -->
+          </li>
         </ul>
       </div>
     </div>
   </nav>
 
+  <script>
+
+    axios.post('/order').then((info) => {
+        console.log(info);
+        var options = {
+            "key": "rzp_test_nvhBWn23LWrMPJ", // Enter the Key ID generated from the Dashboard
+            "amount": "20000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+            "currency": "INR",
+            "name": "Hostel Name",
+            "description": "Test Transaction",
+            "image": "https://example.com/your_logo",
+            "order_id": info.data.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+            "callback_url": "https://eneqd3r9zrjok.x.pipedream.net/",
+            "prefill": {
+                "name": "Gaurav Kumar",
+                "email": "gaurav.kumar@example.com",
+                "contact": "9876456745"
+            },
+            "notes": {
+                "address": "Razorpay Corporate Office"
+            },
+            "theme": {
+                "color": "#3399cc"
+            }
+        };
+
+        var rzp1 = new Razorpay(options);
+        document.getElementById('rzp-button1').onclick = function (e) {
+            rzp1.open();
+            e.preventDefault();
+        }
+
+    })
+</script>

@@ -1,0 +1,48 @@
+#footer {
+  color: white;
+  font-family: 'Dongle', sans-serif;
+  margin: 1% auto;
+  font-family: 'Montserrat-Black', sans-serif;
+  text-align: center;
+  background-color: #3399ff;
+  padding: 50px 50px;
+}
+
+.footer-icons {
+  color: white;
+  padding: 0 15px;
+  margin-bottom: 20px;
+}
+
+.footer-icons:hover {
+  color: black;
+}
+
+.center {
+  text-align: center;
+  margin: auto auto;
+}
+
+.contact {
+  font-family: 'Signika', sans-serif;
+  font-weight: bold;
+  color: #3399ff;
+}
+
+.contactSection {
+  font-family: 'Kanit', sans-serif;
+  font-weight: bold;
+}
+
+.contactIcons {
+  color: #3399ff;
+}
+
+.noMargine {
+  margin: 0;
+}
+
+.someMargine {
+  margin-left: 100px;
+  margin-right: 100px
+}

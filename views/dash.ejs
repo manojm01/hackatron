@@ -1,4 +1,8 @@
+
+
 <%- include ("./headtag") %>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <%- include ("./navbar") %>
 <!--     carousel start     -->
 
@@ -47,13 +51,13 @@
 <!--     carousel end     -->
 <section class="notice my-3">
     <div class="container">
-        <!-- <h2 class="text-center my-3" style="color:#fff">Notice</h2> -->
+        <h2 class="text-center my-3" style="color:rgb(5, 40, 68)">Notice</h2>
         <div class="card mb-3 text-center" style="width:100%;">
             <ul class="list-group list-group-flush">
 
               <li class="list-group-item"style="background-color: #c4c4d9;"><a href="/admission">from Rector office/Hostel Section Regarding Hostel Admission</a> </li>
               <li class="list-group-item"style="background-color: #c4c4d9;"><a href="/complaint"> Parents Undertaking for Hostel Accomodation ... Link for online Form</a> </li>
-              <li class="list-group-item"style="background-color: #c4c4d9;"><a href="#">Circular for Enrollment & Payment of Fees for AY 2021-22 dt. 18.11.2021 ... Click for online Payment</a> </li>
+              <li class="list-group-item"   style="background-color: #c4c4d9;"><a href="/pay" id="rzp-button1">Circular for Enrollment & Payment of Fees for AY 2021-22 dt. 18.11.2021 ... Click for online Payment</a> </li>
               
             </ul>
           </div>
@@ -163,52 +167,72 @@
 </section>
 <!-- faqs end -->
 
-<section class="all-fac mt-5">
-
-     <div class="row text-center">
-        <div class="fac-sect col col-lg-3 col-sm-2col-md-3">
-          <i class="fa-solid fa-shower fa-3x"></i>
-          <h3 class="fac-img-text">Hot Showers</h3>
-        </div>
-        <div class="fac-sect col col-lg-3 col-sm-2 col-md-3">
-          <i class="fa-solid fa-shower fa-3x"></i>
-          <h3 class="fac-img-text">Laundry</h3>
-        </div>
-        <div class="fac-sect col col-lg-3 col-sm-2 col-md-3">
-          <i class="fa-solid fa-shower fa-3x"></i>
-          <h3 class="fac-img-text">Mess</h3>
-        </div>
-        <div class="fac-sect col col-lg-3 col-sm-2 col-md-3">
-          <i class="fas fa-air-conditioner"></i>
-          <h3 class="fac-img-text">Air Condition</h3>
-        </div>
-        <div class="fac-sect col col-lg-3 col-sm-2 col-md-3">
-          <i class="fa-solid fa-shower  fa-3x"></i>
-          <h3 class="fac-img-text">Free WiFi</h3>
-        </div>
-        <div class="fac-sect col col-lg-3 col-sm-2 col-md-3">
-          <i class="fa-solid fa-shower fa-3x"></i>
-          <h3 class="fac-img-text">TV</h3>
-        </div>
-        <div class="fac-sect col col-lg-3 col-sm-2 col-md-3">
-          <i class="fa-solid fa-shower fa-3x"></i>
-          <h3 class="fac-img-text">Iron</h3>
-        </div>
-        <div class="fac-sect col col-lg-3 col-sm-2 col-md-3">
-          <i class="fa-solid fa-shower fa-3x"></i>
-          <h3 class="fac-img-text">Hot Bath</h3>
-        </div>
+<%- include ("./gallary") %>
+<br>
+<br>
+<hr style="color:#4b5fcb;height: 3px; width: 70%;margin: auto;">
+<section>
+  <div class="row someMargine mt-5">
+    <div class="center col-lg-6 col-md-6 col-sm-6">
+      <h1 class="contact">Contact</h1>
+      <p class="noMargine"><i class="fa-solid fa-location-dot contactIcons"></i><span class="contactSection"> ADDRESS</span></p>
+      <p class="noMargine">WCE Vishrambagh, sangli</p>
+      <p class="noMargine"><i class="fa-solid fa-phone contactIcons"></i><span class="contactSection"> PHONE</span></p>
+      <p class="noMargine">7686942011</p>
+      <p class="noMargine"><i class="fa-solid fa-envelope contactIcons"></i><span class="contactSection"> Email</span></p>
+      <p class="noMargine">best.hostel@gmail.com</p>
     </div>
-     
-    
+    <div class="center col-lg-6 col-md-6 col-sm-6">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3818.6090763821367!2d74.59926881481832!3d16.845738688405326!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc1237f52c65db5%3A0xa3535676176ded0a!2sWalchand%20College%20of%20Engineering!5e0!3m2!1sen!2sin!4v1647105799878!5m2!1sen!2sin"
+        width="600" height="300" style="border:0;" allowfullscreen="true" loading="lazy"></iframe>
+    </div>
+  </div>
+  <footer id="footer">
+    <a href="#"><i class="fab fa-twitter footer-icons fa-2x"></i></a>
+    <a href="#"><i class="fab fa-facebook footer-icons fa-2x"></i></a>
+    <a href="#"><i class="fab fa-instagram footer-icons fa-2x"></i></a>
+    <a href="#"><i class="fas fa-envelope footer-icons fa-2x"></i></a>
+    <p>TeamTags © 2022 All Rights Reserved</p>
+  </footer>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>
+
 </section>
 
 
 
-<h1 class="mt-4">Dashboard</h1>
-<p class="lead mb-3">Welcome <%= name %></p>
-<a href="/auth/logout" class="btn btn-secondary">Logout</a>
-<div class="container-fluid">
 
-</div>
+<script>
+  axios.post('/order').then((info) => {
+      console.log(info);
+      var options = {
+          "key": "rzp_test_nvhBWn23LWrMPJ", // Enter the Key ID generated from the Dashboard
+          "amount": "20000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+          "currency": "INR",
+          "name": "Hostel Name",
+          "description": "Test Transaction",
+          "image": "https://example.com/your_logo",
+          "order_id": info.data.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+          "callback_url": "https://eneqd3r9zrjok.x.pipedream.net/",
+          "prefill": {
+              "name": "Gaurav Kumar",
+              "email": "gaurav.kumar@example.com",
+              "contact": "9876456745"
+          },
+          "notes": {
+              "address": "Razorpay Corporate Office"
+          },
+          "theme": {
+              "color": "#3399cc"
+          }
+      };
 
+      var rzp1 = new Razorpay(options);
+      document.getElementById('rzp-button1').onclick = function (e) {
+          rzp1.open();
+          e.preventDefault();
+      }
+
+  })
+</script>

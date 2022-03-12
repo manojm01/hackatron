@@ -108,7 +108,7 @@ router.post('/complaint', (req, res)=>{
   
 router.post('/adminlogin', (req, res)=>{
     console.log(req.body)
-    if(req.body.email == "manojmethgud035@gmail.com" && req.body.password == "12345678" ) {
+    if(req.body.email == "manojmetgud035@gmail.com" && req.body.password == "12345678" ) {
         req.flash(
             'success_msg',
             'Complaint filled successfully.'
@@ -126,6 +126,34 @@ router.post('/adminlogin', (req, res)=>{
  
 
  });
+ const Razorpay = require("razorpay");
 
+const razorpay = new Razorpay({
+  key_id: "rzp_test_nvhBWn23LWrMPJ",
+  key_secret: "jSMCAAUtCl5G6wCZQPcuVWo2",
+});
+router.get("/pay", (req, res) => {
+    res.render("razorpay.ejs");
+});
 
+  router.post("/order", (req, res) => {
+    // instance.orders.create({
+    //   amount: 50000,
+    //   currency: "INR",
+    //   receipt: "receipt#1",
+    //   notes: {
+    //     key1: "value3",
+    //     key2: "value2",
+    //   },
+    // });
+    let options = {
+      amount: 2000000,
+      currency: "INR",
+    };
+  
+    razorpay.orders.create(options, function (err, order) {
+      console.log(order);
+      res.json(order);
+    });
+  });
 module.exports = router;
