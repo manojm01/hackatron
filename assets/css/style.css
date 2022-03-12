@@ -93,3 +93,22 @@ body{
 .faqs-head{
     color: #fff;
 }
+.all-fac{
+    margin: 0 auto;
+}
+
+
+.all-fac i{
+    /* background-color: #4b5fcb;
+    border-radius: 100%;
+    padding: 45px;
+    width: 2.777em;
+    height: 2.777em;
+    line-height: 3rem;
+    margin: 0 auto;
+    transition: 0.5s; */
+}
+.all-fac i:hover{
+    background-color: rgb(29, 29, 29);
+    color: #fff;
+}
