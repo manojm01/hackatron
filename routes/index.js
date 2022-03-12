@@ -1,38 +1,67 @@
 const express = require('express');
-const router = express.Router();	const router = express.Router();
+const router = express.Router();
 const mongoose = require('mongoose')
-const { ensureAuthenticated } = require('../config/checkAuth')	const { ensureAuthenticated } = require('../config/checkAuth')
-
+const { ensureAuthenticated } = require('../config/checkAuth')
 
 const Admission = require('../models/Admission');
 const Complaint = require('../models/Complaint');
 // const Complaint = require('../models/User');
-//------------ Welcome Route ------------//	//------------ Welcome Route ------------//
-router.get('/', (req, res) => {	router.get('/', (req, res) => {
-    res.render('welcome');	    res.render('welcome');
-});	});
+const complaint = mongoose.model('Complaint');
+const admission = mongoose.model('Admission');
+//------------ Welcome Route ------------//
+router.get('/',ensureAuthenticated, (req, res) => {
+    res.render('welcome');
+});
 
+//------------ Dashboard Route ------------//
+// router.get('/dashboard',ensureAuthenticated, (req, res) => res.render('dash'));
+router.get('/dashboard', ensureAuthenticated, (req, res) => res.render('dash', {
+    name: req.user.name
+}));
+router.get('/adminlogin', (req, res) => res.render('adminlogin'));
 
-//------------ Dashboard Route ------------//	//------------ Dashboard Route ------------//
-router.get('/dashboard', ensureAuthenticated, (req, res) => res.render('dash', {	router.get('/dashboard', (req, res) => res.render('dash'));
-    name: req.user.name	// router.get('/dashboard', ensureAuthenticated, (req, res) => res.render('dash', {
-}));	//     name: req.user.name
-// }));
-router.get('/admin', ensureAuthenticated, (req, res) => res.render('index', {	router.get('/admin', ensureAuthenticated, (req, res) => res.render('index', {
-    name: req.user.name	    name: req.user.name
-}));	}));
+router.get('/admin', ensureAuthenticated, async (req, res)=>{
+  await complaint.find()
+  .then(data=>{
+      if(!data)console.log("Failed to retrive complaints");
+      else{
+          console.log("complaints successfully fetched");
+          console.log(data[0].subject);
+          console.log(data[0].complaint);
+          res.render("index",{
+              complainData:data
+          })
+      }
+  })
+  .catch(err=>{
+      res.status(500).send({message: "Erro retrieving user with id " })
+  })
+});
 
-router.get('/admin/billing', ensureAuthenticated, (req, res) => res.render('billing', {	router.get('/admin/billing', ensureAuthenticated, (req, res) => res.render('billing', {
-    name: req.user.name	    name: req.user.name
-}));	}));
+router.get('/admin/billing', ensureAuthenticated, (req, res) => res.render('billing', {
+    name: req.user.name
+}));
 
-router.get('/admin/tables', ensureAuthenticated, (req, res) => res.render('tables', {	router.get('/admin/tables', ensureAuthenticated, (req, res) => res.render('tables', {
-    name: req.user.name	    name: req.user.name
-}));	}));
+router.get('/admin/tables', ensureAuthenticated, async (req, res)=>{
+    await admission.find()
+    .then(data=>{
+        if(!data)console.log("Failed to retrive complaints");
+        else{
+            console.log("complaints successfully fetched");
+            
+            res.render("tables",{
+                admissionData:data
+            })
+        }
+    })
+    .catch(err=>{
+        res.status(500).send({message: "Erro retrieving user with id " })
+    })
+  });
+  
 
-
-module.exports = router; 	router.get('/admission', (req, res) => res.render('admission'));
-router.get('/complaint', (req, res) => res.render('complaint'));
+router.get('/admission',ensureAuthenticated, (req, res) => res.render('admission'));
+router.get('/complaint',ensureAuthenticated, (req, res) => res.render('complaint'));
 
 router.post('/admission', (req, res)=>{
     console.log(req.body)
@@ -73,6 +102,28 @@ router.post('/complaint', (req, res)=>{
      res.redirect('/dashboard');
  })
  .catch(err => console.log(err));
+
+ });
+
+  
+router.post('/adminlogin', (req, res)=>{
+    console.log(req.body)
+    if(req.body.email == "manojmethgud035@gmail.com" && req.body.password == "12345678" ) {
+        req.flash(
+            'success_msg',
+            'Complaint filled successfully.'
+        );
+        res.redirect('admin');
+    }
+    else{
+           
+    }
+    req.flash(
+         'success_msg',
+         'Login failed'
+     );
+     res.redirect('adminlogin');
+ 
 
  });
 
