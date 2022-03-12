@@ -3,7 +3,8 @@
 }
 .register-card .card{
     /* max-width: 50%; */
-    background-color: #303030;
+    background-color: #061150;
+    border-radius: 10px;
     color: aliceblue;
     font-family: 'Poppins', sans-serif;
 }
