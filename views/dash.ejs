@@ -1,4 +1,90 @@
+<style>
+  .card {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  width: 350px;
+}
 
+.card-header {
+  height: 200px;
+}
+
+.card-header img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.card-content {
+  background-color: #fff;
+  padding: 30px;
+}
+
+.card-title {
+  height: 20px;
+  margin: 0;
+}
+
+.card-excerpt {
+  color: #777;
+  margin: 10px 0 20px;
+}
+
+.author {
+  display: flex;
+}
+
+.profile-img {
+  border-radius: 50%;
+  overflow: hidden;
+  height: 40px;
+  width: 40px;
+}
+
+.author-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: 10px;
+  width: 100px;
+}
+
+.author-info small {
+  color: #aaa;
+  margin-top: 5px;
+}
+
+.animated-bg {
+  background-image: linear-gradient(
+    to right,
+    #f6f7f8 0%,
+    #edeef1 10%,
+    #f6f7f8 20%,
+    #f6f7f8 100%
+  );
+  background-size: 200% 100%;
+  animation: bgPos 1s linear infinite;
+}
+
+.animated-bg-text {
+  border-radius: 50px;
+  display: inline-block;
+  margin: 0;
+  height: 10px;
+  width: 100%;
+}
+
+@keyframes bgPos {
+  0% {
+    background-position: 50% 0;
+  }
+
+  100% {
+    background-position: -150% 0;
+  }
+}
+</style>
 
 <%- include ("./headtag") %>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
@@ -16,25 +102,25 @@
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="../assets/img/bg1.jpg" class="d-block" alt="hostel images">
+            <img src="../assets/img/bg2.jpg" class="d-block" alt="hostel images">
             
             <div class="carousel-caption d-none d-md-block" style="color:#fff;">
-              <h5>First slide label</h5>
-              <p>Some representative placeholder content for the first slide.</p>
+              <h5>Embassie Hostel</h5>
+              <p>Relax with friends</p>
             </div>
           </div>
           <div class="carousel-item">
-            <img src="../assets/img/bg2.jpg" class="d-block" alt="hostel images">
+            <img src="../assets/img/bg1.jpg" class="d-block" alt="hostel images">
             <div class="carousel-caption d-none d-md-block" style="color:#fff;">
-              <h5>Second slide label</h5>
-              <p>Some representative placeholder content for the second slide.</p>
+              <h5>Safe Stay</h5>
+              <p>Stay in new kind of place</p>
             </div>
           </div>
           <div class="carousel-item">
             <img src="../assets/img/bg-3.jpg" class="d-block" alt="hostel images">
             <div class="carousel-caption d-none d-md-block" style="color:#fff;">
-              <h5>Third slide label</h5>
-              <p>Some representative placeholder content for the third slide.</p>
+              <h5>Hostel Elf</h5>
+              <p>Your home is Prague</p>
             </div>
           </div>
         </div>
@@ -51,15 +137,15 @@
 <!--     carousel end     -->
 <section class="notice my-3">
     <div class="container">
-        <h2 class="text-center my-3" style="color:rgb(5, 40, 68)">Notice</h2>
-        <div class="card mb-3 text-center" style="width:100%;">
-            <ul class="list-group list-group-flush">
+        <h2 class="text-center my-3" style="color:rgb(5, 40, 68);font-family: 'Poppins', sans-serif;font-weight: 600;">Notice</h2>
+        <div class="card mb-3 text-start" style="width:100%;">
+            <ol class="list-group list-group-flush">
 
-              <li class="list-group-item"style="background-color: #c4c4d9;"><a href="/admission">from Rector office/Hostel Section Regarding Hostel Admission</a> </li>
-              <li class="list-group-item"style="background-color: #c4c4d9;"><a href="/complaint"> Parents Undertaking for Hostel Accomodation ... Link for online Form</a> </li>
-              <li class="list-group-item"   style="background-color: #c4c4d9;"><a href="/pay" id="rzp-button1">Circular for Enrollment & Payment of Fees for AY 2021-22 dt. 18.11.2021 ... Click for online Payment</a> </li>
+              <li class="list-group-item">&#x276F; &nbsp;&nbsp;<a href="/admission">From Rector office/Hostel Section Regarding Hostel Admission</a> </li>
+              <li class="list-group-item">&#x276F; &nbsp;&nbsp;<a href="/complaint"> Parents Undertaking for Hostel Accomodation ... Link for online Form</a> </li>
+              <li class="list-group-item">&#x276F; &nbsp;&nbsp;<a href="/pay" id="rzp-button1">Circular for Enrollment & Payment of Fees for AY 2021-22 dt. 18.11.2021 ... Click for online Payment</a> </li>
               
-            </ul>
+            </ol>
           </div>
     </div>
 </section>
@@ -67,47 +153,51 @@
 
 <!--     cards  starts     -->
 <section class="facility bg-light pt-5 pb-5 shadow-sm">
-    <div class="container">
-      <!-- <div class="row pt-5">
-        <div class="col-12">
-          <h3 class="text-uppercase border-bottom mb-4">Equal height Bootstrap 5 cards example</h3>
-        </div>
-      </div> -->
-      <div class="row">
-        <!--ADD CLASSES HERE d-flex align-items-stretch-->
-        <div class="col-lg-4 mb-3 d-flex align-items-stretch">
-          <div class="card" style="border: 2px solid #4b5fcb;">
-            <img src="../assets/img/room1.jfif" class="card-img-top" alt="Card Image">
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">Rooms</h5>
-              <p class="card-text mb-4">Is a manmade waterway dug in the early 1600's and now displays many landmark commercial locals and vivid neon signs.</p>
-            </div>
+  <div class="container">
+    <!-- <div class="row pt-5">
+      <div class="col-12">
+        <h3 class="text-uppercase border-bottom mb-4">Equal height Bootstrap 5 cards example</h3>
+      </div>
+    </div> -->
+    <div class="row">
+      <!--ADD CLASSES HERE d-flex align-items-stretch-->
+      <div class="col-lg-4 mb-3 d-flex align-items-stretch">
+        <div class="card" style="border: 2px solid #4b5fcb;">
+          <img src="../assets/img/room1.jpg" class="card-img-top" alt="Card Image">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Rooms</h5>
+            <p class="card-text mb-4">Is a manmade waterway dug in the early 1600's and now displays many landmark commercial locals and vivid neon signs.</p>
           </div>
         </div>
-        <!--ADD CLASSES HERE d-flex align-items-stretch-->
-        <div class="col-lg-4 mb-3 d-flex align-items-stretch">
-          <div class="card" style="border: 2px solid #4b5fcb;">
-            <img src="../assets/img/mess.jfif" class="card-img-top" alt="Card Image">
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">Mess</h5>
-              <p class="card-text mb-4">Near Afionas village, on the west coast of Corfu island. The two beaches form two unique bays. The turquoise color of the sea contrasts to the high green hills surrounding it.</p>
-            </div>
+      </div>
+      <!--ADD CLASSES HERE d-flex align-items-stretch-->
+      <div class="col-lg-4 mb-3 d-flex align-items-stretch">
+        <div class="card" style="border: 2px solid #4b5fcb;">
+          <img src="../assets/img/mess.jpg" class="card-img-top" alt="Card Image">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Mess</h5>
+            <p class="card-text mb-4">Near Afionas village, on the west coast of Corfu island. The two beaches form two unique bays. The turquoise color of the sea contrasts to the high green hills surrounding it.</p>
           </div>
         </div>
-        <!--ADD CLASSES HERE d-flex align-items-stretch-->
-        <div class="col-lg-4 mb-3 d-flex align-items-stretch">
-          <div class="card" style="border: 2px solid #4b5fcb;">
-            <img src="../assets/img/gym.jfif" class="card-img-top" alt="Card Image">
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">Gym</h5>
-              <p class="card-text mb-4">Located just outside the City Gate of Valletta, Malta. It consists of three bronze Tritons holding up a large basin, balanced on a concentric base built out of concrete and clad in travertine slabs.</p>
-            </div>
+      </div>
+      <!--ADD CLASSES HERE d-flex align-items-stretch-->
+      <div class="col-lg-4 mb-3 d-flex align-items-stretch">
+        <div class="card" style="border: 2px solid #4b5fcb;">
+          <img src="../assets/img/gym.jpg" class="card-img-top" alt="Card Image">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Gym</h5>
+            <p class="card-text mb-4">Located just outside the City Gate of Valletta, Malta. It consists of three bronze Tritons holding up a large basin, balanced on a concentric base built out of concrete and clad in travertine slabs.</p>
           </div>
         </div>
       </div>
     </div>
+  </div>
 </section>
 <!--     cards  end     -->
+<!--     cards  start     -->
+
+
+<!--     cards  start     -->
 
 <!-- faqs start -->
 <section class="faqs">
@@ -170,15 +260,15 @@
 <%- include ("./gallary") %>
 <br>
 <br>
-<hr style="color:#4b5fcb;height: 3px; width: 70%;margin: auto;">
+<hr style="color:#2844e4;height: 3px; width: 90%;margin: auto;">
 <section>
   <div class="row someMargine mt-5">
     <div class="center col-lg-6 col-md-6 col-sm-6">
       <h1 class="contact">Contact</h1>
       <p class="noMargine"><i class="fa-solid fa-location-dot contactIcons"></i><span class="contactSection"> ADDRESS</span></p>
-      <p class="noMargine">WCE Vishrambagh, sangli</p>
+      <p class="noMargine">WCE Vishrambagh, sangli</p><br>
       <p class="noMargine"><i class="fa-solid fa-phone contactIcons"></i><span class="contactSection"> PHONE</span></p>
-      <p class="noMargine">7686942011</p>
+      <p class="noMargine">7686942011</p><br>
       <p class="noMargine"><i class="fa-solid fa-envelope contactIcons"></i><span class="contactSection"> Email</span></p>
       <p class="noMargine">best.hostel@gmail.com</p>
     </div>

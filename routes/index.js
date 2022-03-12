@@ -116,13 +116,13 @@ router.post('/adminlogin', (req, res)=>{
         res.redirect('admin');
     }
     else{
-           
+        res.redirect('adminlogin');  
     }
     req.flash(
          'success_msg',
          'Login failed'
      );
-     res.redirect('adminlogin');
+     
  
 
  });

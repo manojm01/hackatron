@@ -1,10 +1,9 @@
 #footer {
   color: white;
-  font-family: 'Dongle', sans-serif;
+  
   margin: 1% auto;
-  font-family: 'Montserrat-Black', sans-serif;
   text-align: center;
-  background-color: #3399ff;
+  background-color:#4b5fcb;
   padding: 50px 50px;
 }
 
@@ -24,18 +23,18 @@
 }
 
 .contact {
-  font-family: 'Signika', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: bold;
-  color: #3399ff;
+  color: #4b5fcb;
 }
 
 .contactSection {
-  font-family: 'Kanit', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: bold;
 }
 
 .contactIcons {
-  color: #3399ff;
+  color: #4b5fcb;
 }
 
 .noMargine {
