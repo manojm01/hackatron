@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/assets/css/admission.css">
+  <title>Hostel Registration Form</title>
+</head>
+
+<body>
+  <div class="container ">
+    <header class="header">
+      <h1 id="description">
+        Hostel Registration Form
+      </h1>
+    </header>
+    <form action="/admission" method="POST" id="survey-form">
+
+      <!-- Text section -->
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" class="formControl" placeholder="Enter your name" required>
+      </div>
+      <!-- end of text section -->
+
+      <!-- Type Email section -->
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" class="formControl" placeholder="Enter your Email" required>
+      </div>
+      <!-- end of Email section -->
+
+      <!-- Type Number section -->
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="text" onkeyup="isInputNumber(this)" name="phone" id="phone" class="formControl" placeholder="Enter your phone number" required>
+      </div>
+      <!-- end of Number section -->
+
+      <div class="form-group">
+        <label for="prn">PRN</label>
+        <input type="text" name="prn" id="prn" class="formControl" placeholder="Enter your PRN" required>
+      </div>
+
+      <div class="form-group">
+        <label for="cgpa">CGPA</label>
+        <input type="number" name="cgpa" id="cgpa" min="1" max="10" step="0.1" class="formControl" placeholder="Enter your CGPA" required>
+      </div>
+
+      <div class="form-group">
+        <label for="department">Department</label>
+        <select name="department" required id="dropdown" class="formControl">
+          <option value disabled selected>Select Department</option>
+          <option value="cse">CSE</option>
+          <option value="it">IT</option>
+          <option value="electronics">Electronics</option>
+          <option value="electrical">Electrical</option>
+          <option value="mechanical">Mechanical</option>
+          <option value="civil">Civil</option>
+        </select>
+      </div>
+
+
+
+
+      <!-- Type Number section -->
+      <div class="form-group">
+        <label for="address">Address <span class="clue">(permanent)</span></label>
+        <input type="text" name="address" id="address" class="formControl" placeholder="Enter your address" required>
+      </div>
+      <!--  end of number section -->
+
+      <!-- select section -->
+      <div class="form-group">
+        <label for="caste">Caste</label>
+        <select name="caste" required id="dropdown" class="formControl">
+          <option value disabled selected>Select caste</option>
+          <option value="general">General</option>
+          <option value="sc">SC</option>
+          <option value="st">ST</option>
+          <option value="obc">OBC</option>
+          <option value="ewc">EWC</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <!-- end of select section -->
+
+      <div class="form-group">
+        <label for="year">Current Year of study</label>
+        <select name="year" required id="dropdown" class="formControl">
+          <option value disabled selected>Select Year</option>
+          <option value="first">First</option>
+          <option value="second">Second</option>
+          <option value="third">Third</option>
+          <option value="fourth">Fourth</option>
+        </select>
+      </div>
+
+
+      <!-- radio button section -->
+      <div class="form-group">
+        <label for="gender">Gender</label>
+        <select name="gender" required id="dropdown" class="formControl">
+          <option value disabled selected>Select gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </div>
+      <!-- end of radio button -->
+
+      <div class="form-group">
+        <label for="roomPreference">Room Preference</label>
+        <select name="preference" required id="dropdown" class="formControl">
+          <option value disabled selected>Select preference</option>
+          <option value="single">Single</option>
+          <option value="sharedOne">Shared with One</option>
+          <option value="sharedTwo">Shared with Two</option>
+          <option value="sharedThree">Shared with Three</option>
+        </select>
+      </div>
+      <!-- End of checkbox section -->
+
+      <!-- Textarea section -->
+
+      <div class="form-group">
+        <button type="submit" id="Submit" class="btn">Submit</button>
+      </div>
+    </form>
+  </div>
+  <script>
+    function isInputNumber(input) {
+      var num = /[^0-9]/gi;
+      input.value = input.value.replace(num, "");
+    }
+  </script>
+</body>
+
+</html>
