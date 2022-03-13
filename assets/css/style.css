@@ -8,6 +8,15 @@
     color: aliceblue;
     font-family: 'Poppins', sans-serif;
 }
+.register-card .col-md-4{
+    margin: auto;
+}
+@media screen and (max-width: 480px){
+    .register-card .col-md-4{
+        margin-left: 1.38rem;
+    }
+}
+
 .register .form-group{
     margin-bottom: 1rem;
 }
@@ -26,8 +35,16 @@
     background-color: #4b5fcb;
     top: 0;
     z-index: 5;
+    width: 100%;
     font-family: 'Poppins', sans-serif;
 }
+@media screen and (max-width: 480px) {
+    .navbar {
+     width: 65%;
+    }
+  }
+
+
 .navbar-brand{
     color: #fff;
     font-weight: 800;
