@@ -25,9 +25,6 @@ router.get('/admin', ensureAuthenticated, async (req, res)=>{
   .then(data=>{
       if(!data)console.log("Failed to retrive complaints");
       else{
-          console.log("complaints successfully fetched");
-          console.log(data[0].subject);
-          console.log(data[0].complaint);
           res.render("index",{
               complainData:data
           })
@@ -47,8 +44,6 @@ router.get('/admin/tables', ensureAuthenticated, async (req, res)=>{
     .then(data=>{
         if(!data)console.log("Failed to retrive complaints");
         else{
-            console.log("complaints successfully fetched");
-            
             res.render("tables",{
                 admissionData:data
             })
@@ -64,7 +59,6 @@ router.get('/admission',ensureAuthenticated, (req, res) => res.render('admission
 router.get('/complaint',ensureAuthenticated, (req, res) => res.render('complaint'));
 
 router.post('/admission', (req, res)=>{
-    console.log(req.body)
     const newAdmission = new Admission();
     newAdmission.name = req.body.name;
     newAdmission.email = req.body.email;
@@ -89,7 +83,6 @@ router.post('/admission', (req, res)=>{
 });
 
 router.post('/complaint', (req, res)=>{
-    console.log(req.body)
     const newComplaint = new Complaint();
     newComplaint.subject = req.body.subject;
     newComplaint.complaint = req.body.complaint;
@@ -107,7 +100,6 @@ router.post('/complaint', (req, res)=>{
 
   
 router.post('/adminlogin', (req, res)=>{
-    console.log(req.body)
     if(req.body.email == "manojmetgud035@gmail.com" && req.body.password == "12345678" ) {
         req.flash(
             'success_msg',
@@ -152,7 +144,6 @@ router.get("/pay", (req, res) => {
     };
   
     razorpay.orders.create(options, function (err, order) {
-      console.log(order);
       res.json(order);
     });
   });
