@@ -18,3 +18,4 @@ Hostel management require vast management skill and hard work, it is very diffic
 - NodeJS
 - CLI
 - GitHub
+- ![Screenshot (92)](https://user-images.githubusercontent.com/69072494/163850965-9bd18387-6070-4912-b9d5-d56ceee93cd0.png)
