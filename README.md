@@ -10,8 +10,10 @@ Hostel management require vast management skill and hard work, it is very diffic
 5.  Mongoose
 6.  PassportJS
 7.  JWT
-8.  Nodemailer.
+8.  Nodemailer
 
+## Tools used
+- VS Code
 
 ## Prerequisites
 - Git
