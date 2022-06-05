@@ -14,6 +14,7 @@ Hostel management require vast management skill and hard work, it is very diffic
 
 ## Tools used
 - VS Code
+- Heroku
 
 ## Prerequisites
 - Git
