@@ -1,44 +1,43 @@
-
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js">
+</script>
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
 <nav class="navbar navbar-expand-lg navbar-dark sticky" style="position: fixed;">
     <div class="container-fluid">
-      <a class="navbar-brand ms-3" href="#" style="font-size: 2rem;">Hostel</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand ms-3" href="#" style="font-size: 2rem;">Hostel</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/pay" id="rzp-button1">Payment</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/complaint">Raise Complaint</a>
-          </li>
-          <!-- <li class="nav-item">
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/pay" id="rzp-button1">Payment</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/complaint">Raise Complaint</a>
+                </li>
+                <!-- <li class="nav-item">
             <a class="nav-link" href="/auth/logout">Logout</a>
           </li> -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Hello <%= name %>
             </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="nav-link" href="/auth/logout" style="color: #000;">Logout</a></li>
-              <!-- <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="nav-link" href="/auth/logout" style="color: #000;">Logout</a></li>
+                        <!-- <li><a class="dropdown-item" href="#">Another action</a></li>
               <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+                    </ul>
+                </li>
             </ul>
-          </li>
-        </ul>
-      </div>
+        </div>
     </div>
 </nav>
 
-  <script>
-
+<script>
     axios.post('/order').then((info) => {
         console.log(info);
         var options = {
@@ -64,7 +63,7 @@
         };
 
         var rzp1 = new Razorpay(options);
-        document.getElementById('rzp-button1').onclick = function (e) {
+        document.getElementById('rzp-button1').onclick = function(e) {
             rzp1.open();
             e.preventDefault();
         }
